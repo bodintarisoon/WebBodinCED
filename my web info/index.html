@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bodin Tarisoon | Personal Website</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Link CSS (ทำทีหลังได้) -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="banner">
+        <h1>Welcome to my website</h1>
+        <p>Bodin Tarisoon | CED</p>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li>
+    <a href="#about">
+        <i class="fa-solid fa-user"></i> About Me
+    </a>
+</li>
+
+<li>
+    <a href="#education">
+        <i class="fa-solid fa-graduation-cap"></i> Education
+    </a>
+</li>
+
+<li>
+    <a href="#activities">
+        <i class="fa-solid fa-trophy"></i> Activities
+    </a>
+</li>
+
+<li>
+    <a href="#interests">
+        <i class="fa-solid fa-guitar"></i> Interests
+    </a>
+</li>
+
+        </ul>
+    </nav>
+
+    <!-- About Me Section -->
+    <section id="about" class="fade-section">
+        <h2>About Me</h2>
+
+        <img src="images/profilee.png"
+        alt="Bodin Tarisoon profile photo"
+        class="profile-img">
+
+        <p>
+            My name is <strong>Bodin Tarisoon</strong>, and my nickname is <strong>Oak</strong>.
+            I was born on <strong>28 April 2004</strong> now I'm <strong>21</strong> years old
+        </p>
+        <p>
+            Today, I’m going to take you all through my personal story and show you what I’ve been up to. 
+            <p>I hope you enjoy your visit!</p>
+          
+        </p>
+    </section>
+
+    <!-- Education Section -->
+<section id="education" class="fade-section">
+    <h2>Education</h2>
+
+    <div class="education-timeline">
+
+        <!-- Primary School -->
+        <div class="education-item">
+        <div class="education-content">
+                <img src="images/rachapruek.png" alt="Primary School Logo" class="education-logo">
+                <div>
+            <h3>Primary School</h3>
+            <p><strong>Sarasas Witaed Ratchaphruek School </strong></p>
+            <p>2008 - 2014</p>
+        </div>
+</div>
+</div>
+        <!-- Secondary School -->
+        <div class="education-item">
+        <div class="education-content">
+                <img src="images/ACT.png" alt="Secondary School Logo" class="education-logo">
+                <div>
+            <h3>Secondary School</h3>
+            <p><strong>Assumption College Thonburi</strong></p>
+            <p>2014 - 2017</p>
+        </div>
+</div>
+</div>
+        <!-- High School -->
+        <div class="education-item">
+        <div class="education-content">
+                <img src="images/nonwit.png" alt="High School Logo" class="education-logo">
+                <div>
+            <h3>High School</h3>
+            <p><strong>Nonthaburi Wittayalai School</strong></p>
+            <p>2017 - 2021</p>
+        </div>
+</div>
+</div>
+        <!-- University -->
+        <div class="education-item">
+        <div class="education-content">
+                <img src="images/kmutnb.png" alt="University Logo" class="education-logo">
+                <div>
+            <h3>University (Current)</h3>
+            <p><strong>King Mongkut's University of Technology North Bangkok (KMUTNB)</strong></p>
+            <p>Faculty of Industrial Education, Program in Computer Technology (CED)</p>
+            <p>Year 2 (2023 - Present)</p>
+        </div>
+</div>
+</div>
+    </div>
+</section>
+
+    <!-- Activities Section -->
+    <section id="activities" class="fade-section">
+        <h2>Activities</h2>
+
+        <h3>E-sports Competition</h3>
+
+        <img src="images/RiyadhEWC.jpg"
+        alt="International e-sports competition"
+        class="competition-img">
+
+        
+       <a href="achievements.html" class="cta-button">
+    🏆 View My Competition Achievements
+</a>
+
+    </a>
+</p>
+
+
+        <ul>
+            <li>Professional-level international e-sports competitions</li>
+        </ul>
+
+        <h3>Clubs</h3>
+        <ul>
+            <li>E-sports Club, King Mongkut's University of Technology North Bangkok</li>
+        </ul>
+        <div class="social-links">
+    <p>Follow me on Twitch:</p>
+
+    <a href="https://www.twitch.tv/aflowwww"
+       target="_blank"
+       class="social-btn twitch">
+       Twitch
+    </a>
+</div>
+    </section>
+
+    <!-- Interests Section -->
+    <section id="interests" class="fade-section">
+    <h2>Interests</h2>
+
+    <p>
+        My interests include playing musical instruments and playing video games.
+        I enjoy spending my free time improving my skills in both music and gaming.
+    </p>
+
+    <div class="social-links">
+        <p>Music content on TikTok:</p>
+
+        <a href="https://www.tiktok.com/@aflowxq"
+           target="_blank"
+           class="social-btn tiktok">
+           TikTok
+        </a>
+    </div>
+</section>
+
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Bodin Tarisoon. All rights reserved.</p>
+    </footer>
+<script>
+const sections = document.querySelectorAll('.fade-section');
+
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('show');
+        }
+    });
+}, {
+    threshold: 0.2
+});
+
+sections.forEach(section => {
+    observer.observe(section);
+});
+</script>
+    <nav class="navbar">
+    <a href="https://www.instagram.com/aflowxq/" target="_blank"><i class="fa-brands fa-instagram"></i> Instagram</a>
+    <a href="https://www.twitch.tv/aflowwww" target="_blank"><i class="fa-brands fa-twitch"></i> Twitch</a>
+    <a href="https://www.tiktok.com/@aflowxq" target="_blank"><i class="fa-brands fa-tiktok"></i> TikTok</a>
+    <a href="https://www.facebook.com/bodin.tarisoon.7/?locale=th_TH" target="_blank"><i class="fa-brands fa-facebook"></i> Facebook</a>
+</nav>
+
+
+</body>
+</html>

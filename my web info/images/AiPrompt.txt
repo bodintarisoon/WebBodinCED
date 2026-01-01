@@ -1,0 +1,21 @@
+I used AI to help me generate my personal e-sports website. 
+Here is the prompt I used:
+
+
+1. A header section with my name and title.
+2. Navigation menu linking to sections: About Me, Education, Activities, and Interests.
+3. About Me section with my photo, introduction, and clickable link to my e-sports organization 'Five Fears'.
+4. Education section showing Primary, Secondary, High School, and University with logos.
+5. Activities section with E-sports competitions, clubs, and social media links.
+6. Achievements page showing major competitions with:
+    - Flag icons for countries
+    - Prize amounts highlighted
+    - Images in a gallery linking to YouTube videos
+    - Overlay text on hover
+7. Buttons like 'View My Competition Achievements' centered and styled.
+8. Gallery images all have the same size and object-fit cover.
+9. Responsive design for mobile and desktop.
+10. Styled using CSS with gradients, hover effects, and Font Awesome icons.
+11. All clickable links open in a new tab.
+
+Please generate HTML and CSS that fulfills these requirements."
