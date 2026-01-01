@@ -10,10 +10,9 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-
-    <!-- Header -->
+ <!-- Header -->
     <header class="banner">
-        <h1>Welcome to my website</h1>
+        <h1 class="typewriter">Welcome to my website</h1>
         <p>Bodin Tarisoon | CED</p>
     </header>
 
@@ -131,7 +130,7 @@
         class="competition-img">
 
         
-       <a href="achievements.html" class="cta-button">
+       <a href="achievements.html" class="cta-button" target="contentFrame">
     🏆 View My Competition Achievements
 </a>
 
@@ -199,6 +198,66 @@ const observer = new IntersectionObserver(entries => {
 sections.forEach(section => {
     observer.observe(section);
 });
+        
+const playlist = [
+    { title: "IT Welcome to Derry", src: "music/IT.mp3" },
+    { title: "Stranger Things", src: "music/Sgt.mp3" },
+    { title: "Harry Potter", src: "music/Prologue.mp3" }
+];
+
+let currentSongIndex = 0; 
+
+const song = document.getElementById("mySong");
+const songSource = document.getElementById("songSource");
+const btn = document.getElementById("musicBtn");
+const songTitle = document.getElementById("songTitle");
+const volumeSlider = document.getElementById("volumeSlider");
+
+
+function loadSong(index) {
+    songSource.src = playlist[index].src;
+    songTitle.innerText = "Now Playing: " + playlist[index].title;
+    song.load(); 
+}
+
+
+loadSong(currentSongIndex);
+
+
+function togglePlay() {
+    if (song.paused) {
+        song.play();
+        btn.innerHTML = '<i class="fa-solid fa-pause"></i>';
+        btn.classList.add("playing");
+    } else {
+        song.pause();
+        btn.innerHTML = '<i class="fa-solid fa-play"></i>';
+        btn.classList.remove("playing");
+    }
+}
+
+
+function nextSong() {
+    currentSongIndex++;
+    if (currentSongIndex >= playlist.length) {
+        currentSongIndex = 0; 
+    }
+    loadSong(currentSongIndex);
+    song.play(); 
+    btn.innerHTML = '<i class="fa-solid fa-pause"></i>';
+    btn.classList.add("playing");
+}
+
+
+song.onended = function() {
+    nextSong();
+};
+
+song.volume = volumeSlider.value;
+volumeSlider.addEventListener("input", (e) => {
+    song.volume = e.target.value;
+});
+        
 </script>
     <nav class="navbar">
     <a href="https://www.instagram.com/aflowxq/" target="_blank"><i class="fa-brands fa-instagram"></i> Instagram</a>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bodin Tarisoon | Personal Website</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css"> <style>
+        body, html { margin: 0; padding: 0; height: 100%; overflow: hidden; }
+       
+        #contentFrame {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="preloader">
+    <div class="loader-content">
+        <div class="spinner"></div>
+        <h2 class="loading-text">BODIN CED</h2>
+        <p>Loading Experience...</p>
+    </div>
+</div>
+    <iframe src="index.html" id="contentFrame" name="contentFrame"></iframe>
+
+    <div class="music-player-fixed">
+        <audio id="mySong">
+            <source id="songSource" type="audio/mpeg">
+        </audio>
+        <div class="volume-container">
+            <input type="range" id="volumeSlider" min="0" max="1" step="0.1" value="0.5">
+        </div>
+        <div style="display: flex; gap: 10px;">
+            <button onclick="togglePlay()" id="musicBtn"><i class="fa-solid fa-play"></i></button>
+            <button onclick="nextSong()" id="nextBtn"><i class="fa-solid fa-forward"></i></button>
+        </div>
+        <p id="songTitle" style="font-size: 12px; color: #3498db; margin-top: 5px; font-weight: bold;"></p>
+    </div>
+
+    <script>
+        
+        const playlist = [
+            { title: "IT Welcome to Derry", src: "music/IT.mp3" },
+            { title: "Stranger Things", src: "music/Sgt.mp3" },
+            { title: "Harry Potter", src: "music/Prologue.mp3" }
+        ];
+        let currentSongIndex = 0;
+        const song = document.getElementById("mySong");
+        const songSource = document.getElementById("songSource");
+        const btn = document.getElementById("musicBtn");
+        const songTitle = document.getElementById("songTitle");
+        const volumeSlider = document.getElementById("volumeSlider");
+
+        function loadSong(index) {
+            songSource.src = playlist[index].src;
+            songTitle.innerText = "Now Playing: " + playlist[index].title;
+            song.load();
+        }
+        loadSong(currentSongIndex);
+
+        function togglePlay() {
+            if (song.paused) { song.play(); btn.innerHTML = '<i class="fa-solid fa-pause"></i>'; btn.classList.add("playing"); }
+            else { song.pause(); btn.innerHTML = '<i class="fa-solid fa-play"></i>'; btn.classList.remove("playing"); }
+        }
+
+        function nextSong() {
+            currentSongIndex = (currentSongIndex + 1) % playlist.length;
+            loadSong(currentSongIndex);
+            song.play();
+            btn.innerHTML = '<i class="fa-solid fa-pause"></i>';
+        }
+        
+        song.volume = volumeSlider.value;
+        volumeSlider.addEventListener("input", (e) => { song.volume = e.target.value; });
+        window.addEventListener("load", function() {
+    const preloader = document.getElementById("preloader");
+    
+    
+    setTimeout(() => {
+        preloader.classList.add("loader-hidden");
+
+        
+        const iframe = document.getElementById("contentFrame");
+        const innerDoc = iframe.contentDocument || iframe.contentWindow.document;
+        const typewriterElement = innerDoc.querySelector(".typewriter");
+        
+        if (typewriterElement) {
+            typewriterElement.classList.add("start-typing");
+        }
+       
+        
+    }, 1500); 
+});
+    </script>
+</body>
+</html>
