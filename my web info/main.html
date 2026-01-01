@@ -74,25 +74,42 @@
         
         song.volume = volumeSlider.value;
         volumeSlider.addEventListener("input", (e) => { song.volume = e.target.value; });
-        window.addEventListener("load", function() {
+     const iframe = document.getElementById("contentFrame");
     const preloader = document.getElementById("preloader");
-    
-    
-    setTimeout(() => {
-        preloader.classList.add("loader-hidden");
 
-        
-        const iframe = document.getElementById("contentFrame");
-        const innerDoc = iframe.contentDocument || iframe.contentWindow.document;
-        const typewriterElement = innerDoc.querySelector(".typewriter");
-        
-        if (typewriterElement) {
-            typewriterElement.classList.add("start-typing");
+ 
+    function triggerTypewriter() {
+        try {
+            const innerDoc = iframe.contentDocument || iframe.contentWindow.document;
+            const typewriterElement = innerDoc.querySelector(".typewriter");
+            
+            if (typewriterElement) {
+                
+                typewriterElement.classList.remove("start-typing");
+                
+                void typewriterElement.offsetWidth; 
+               
+                typewriterElement.classList.add("start-typing");
+            }
+        } catch (e) {
+            console.log("กำลังรอเนื้อหาใน Iframe โหลด...");
         }
-       
+    }
+
+   
+    iframe.onload = function() {
         
-    }, 1500); 
-});
+        if (preloader.classList.contains("loader-hidden")) {
+            triggerTypewriter();
+        }
+    };
+
+    window.addEventListener("load", function() {
+        setTimeout(() => {
+            preloader.classList.add("loader-hidden");
+            triggerTypewriter(); 
+        }, 1500); 
+    });  
     </script>
 </body>
 </html>
