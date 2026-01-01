@@ -820,7 +820,8 @@ nav ul li a:hover i {
 }
 .highlight {
     background: linear-gradient(90deg, #66fcf1, #45a29e);
-    -webkit-background-clip: text;
+    -webkit-background-clip: text; /* สำหรับ Chrome/Safari */
+    background-clip: text;         /* เพิ่มบรรทัดนี้ (แบบมาตรฐาน) */
     -webkit-text-fill-color: transparent;
     font-weight: 800;
 }
